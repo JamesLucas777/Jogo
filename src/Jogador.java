@@ -6,13 +6,23 @@ public class Jogador {
 
     public Jogador(String nome) {
         this.nome = nome;
-        //this.idade = idade;
         this.numeroTentativas = 0;
         this.pontuacao = 0;
     }
 
+    public Jogador(String nome, int idade, int pontuacao, int numeroTentativas) {
+        this.nome = nome;
+        this.idade = idade;
+        this.pontuacao = pontuacao;
+        this.numeroTentativas = numeroTentativas;
+    }
+
     public String getNome() {
         return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public int getIdade() {
@@ -50,6 +60,12 @@ public class Jogador {
     // Se precisar, depois altero o método para só incrementar o numero de tentativas, sem parametro
     public void adicionarTentativas(int numeroTentativas) {
         setNumeroTentativas(getNumeroTentativas() + numeroTentativas);
+    }
+
+    public void mostrarInformacoesJogador() {
+        System.out.println("\nPontuação do jogador " + getNome() + ": " + getPontuacao());
+        // System.out.println("O jogador " + getNome() + " tem " + getIdade() + " anos.");
+        System.out.println("Tentativas do jogador " + getNome() + ": " + getNumeroTentativas());
     }
 
 }
