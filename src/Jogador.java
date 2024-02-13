@@ -64,8 +64,8 @@ public class Jogador {
 
     public void mostrarInformacoesJogador() {
         System.out.println("\nPontuação do jogador " + getNome() + ": " + getPontuacao());
-        // System.out.println("O jogador " + getNome() + " tem " + getIdade() + " anos.");
         System.out.println("Tentativas do jogador " + getNome() + ": " + getNumeroTentativas());
+        // System.out.println("O jogador " + getNome() + " tem " + getIdade() + " anos.");
     }
 
 }
