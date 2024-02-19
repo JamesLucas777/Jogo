@@ -37,7 +37,8 @@ public class Main {
         ordenarMelhoresJogadores(jogadores);
         System.out.println("\nLista dos Melhores Jogadores: ");
         for (int i = 0; i < jogadores.size() && i < 10; i++) {
-            System.out.println(i + 1 + "º " + jogadores.get(i).getNome() + " - " + jogadores.get(i).getPontuacao() + " pontos");
+            // System.out.println(i + 1 + "º " + jogadores.get(i).getNome() + " - " + jogadores.get(i).getPontuacao() + " pontos");
+            System.out.println(jogadores.get(i).getNome() + " - " + (i + 1) + "º lugar");
         }
     }
 
@@ -45,9 +46,11 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         List<Jogador> listaMelhoresJogadores = new ArrayList<>();
 
+
         // para não precisar poluir o main, crio o jogador separadamente
         Jogador jogador1 = criarJogador(scanner);
         Jogador jogador2 = criarJogador(scanner);
+
         adicionarMelhoresJogadoresOrdenados(listaMelhoresJogadores, jogador1);
         adicionarMelhoresJogadoresOrdenados(listaMelhoresJogadores, jogador2);
 
