@@ -28,9 +28,33 @@ public class Main {
         // Comparator -> classe utilitária de comparação
         jogadores.sort(Comparator.comparingInt(Jogador::getPontuacao).reversed()); // ordem decrescente (maior para menor)
     }
+
+    // Sempre que um jogador for criado, adicione uma validação se o nome do jogador existe na lista de jogadores.
+    //Se ele já existir, peça para ele colocar outro nome. Quando não existe, adiciona o jogador na lista
     private static void adicionarMelhoresJogadoresOrdenados(List<Jogador> jogadores, Jogador jogador) {
+        while (verificarSeJogadorExiste(jogadores, jogador.getNome())) {
+            System.out.print("\nJogador " + jogador.getNome() + " já existente. Digite outro nome: ");
+            mudarNomeJogador(jogador);
+        }
         jogadores.add(jogador);
         ordenarMelhoresJogadores(jogadores);
+    }
+
+    private static boolean verificarSeJogadorExiste(List<Jogador> jogadores, String nome) {
+        for (Jogador jogador : jogadores) {
+            if (jogador.getNome().equals(nome)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private static void mudarNomeJogador(Jogador jogador) {
+        Scanner scanner = new Scanner(System.in);
+        jogador.setNome(scanner.nextLine());
+// scanner.close();  quando tenta fechar o scanner e ele rodar de novo (2º vez) pra por o novo nome ele lança a exceção:
+// Exception in thread "main" java.util.NoSuchElementException: No line found          na linha do scanner
+// então não dá pra fechar o scanner e tem que esperar que o garbage collector feche os scanners que abrirem
     }
 
     private static void listarMelhoresJogadores(List<Jogador> jogadores) {
