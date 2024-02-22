@@ -15,11 +15,11 @@ public class Main {
         String nome = scanner.nextLine();
         System.out.print("Digite a idade do jogador: ");
         int idade = nextInt(scanner);
-        System.out.print("Digite a pontuação do jogador: ");
-        int pontuacao = nextInt(scanner);
-        System.out.print("Digite o número de tentativas do jogador: ");
-        int numeroTentativas = nextInt(scanner);
-        return new Jogador(nome, idade, pontuacao, numeroTentativas);
+//        System.out.print("Digite a pontuação do jogador: ");
+//        int pontuacao = nextInt(scanner);
+//        System.out.print("Digite o número de tentativas do jogador: ");
+//        int numeroTentativas = nextInt(scanner);
+        return new Jogador(nome, idade); // , pontuacao, numeroTentativas);
     }
 
     private static void ordenarMelhoresJogadores(List<Jogador> jogadores) {
@@ -61,8 +61,7 @@ public class Main {
         ordenarMelhoresJogadores(jogadores);
         System.out.println("\nLista dos Melhores Jogadores: ");
         for (int i = 0; i < jogadores.size() && i < 10; i++) {
-            // System.out.println(i + 1 + "º " + jogadores.get(i).getNome() + " - " + jogadores.get(i).getPontuacao() + " pontos");
-            System.out.println(jogadores.get(i).getNome() + " - " + (i + 1) + "º lugar");
+            System.out.println(jogadores.get(i).getNome() + " - " + (i + 1) + "º lugar com " + jogadores.get(i).getPontuacao() + " pontos.");
         }
     }
 
@@ -78,18 +77,20 @@ public class Main {
         adicionarMelhoresJogadoresOrdenados(listaMelhoresJogadores, jogador1);
         adicionarMelhoresJogadoresOrdenados(listaMelhoresJogadores, jogador2);
 
-
-        // como não foi especificado, o pontuacao e o numero de tentativas ficará assim por enquanto
-        // e pontos são adicionados e removidos manualmente passando um número como parametro
-        jogador1.adicionarPontos(10);
-        jogador1.adicionarTentativas(1);
-        jogador1.perderPontos(5);
-        jogador1.adicionarTentativas(1);
-
         jogador1.mostrarInformacoesJogador(); // mostra algumas informações sobre o jogador no console
         jogador2.mostrarInformacoesJogador();
 
         // mostra os jogadores na ordem de pontuação
         listarMelhoresJogadores(listaMelhoresJogadores);
+
+        Jogo jogo1 = new Jogo(jogador1);
+        jogo1.jogar();
+        jogo1.jogar();
+        Jogo jogo2 = new Jogo(jogador2);
+        jogo2.jogar();
+        jogo2.jogar();
+        listarMelhoresJogadores(listaMelhoresJogadores);
+
+
     }
 }

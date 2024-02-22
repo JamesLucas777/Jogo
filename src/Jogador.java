@@ -17,6 +17,13 @@ public class Jogador {
         this.numeroTentativas = numeroTentativas;
     }
 
+    public Jogador(String nome, int idade) {
+        this.nome = nome;
+        this.idade = idade;
+        this.numeroTentativas = 0;
+        this.pontuacao = 0;
+    }
+
     public String getNome() {
         return nome;
     }
