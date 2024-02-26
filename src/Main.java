@@ -15,11 +15,7 @@ public class Main {
         String nome = scanner.nextLine();
         System.out.print("Digite a idade do jogador: ");
         int idade = nextInt(scanner);
-//        System.out.print("Digite a pontuação do jogador: ");
-//        int pontuacao = nextInt(scanner);
-//        System.out.print("Digite o número de tentativas do jogador: ");
-//        int numeroTentativas = nextInt(scanner);
-        return new Jogador(nome, idade); // , pontuacao, numeroTentativas);
+        return new Jogador(nome, idade);
     }
 
     private static void ordenarMelhoresJogadores(List<Jogador> jogadores) {
@@ -65,6 +61,11 @@ public class Main {
         }
     }
 
+    private static int escolhaUmNumero(Scanner scanner) {
+        System.out.print("\nEscolha um número para ser o limite máximo do jogo: ");
+        return nextInt(scanner);
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         List<Jogador> listaMelhoresJogadores = new ArrayList<>();
@@ -80,17 +81,15 @@ public class Main {
         jogador1.mostrarInformacoesJogador(); // mostra algumas informações sobre o jogador no console
         jogador2.mostrarInformacoesJogador();
 
+        Jogo jogo1 = new Jogo(jogador1);
+        jogo1.jogar(escolhaUmNumero(scanner));
+        jogo1.jogar();
+
+        Jogo jogo2 = new Jogo(jogador2);
+        jogo2.jogar(escolhaUmNumero(scanner));
+        jogo2.jogar();
+
         // mostra os jogadores na ordem de pontuação
         listarMelhoresJogadores(listaMelhoresJogadores);
-
-        Jogo jogo1 = new Jogo(jogador1);
-        jogo1.jogar();
-        jogo1.jogar();
-        Jogo jogo2 = new Jogo(jogador2);
-        jogo2.jogar();
-        jogo2.jogar();
-        listarMelhoresJogadores(listaMelhoresJogadores);
-
-
     }
 }
