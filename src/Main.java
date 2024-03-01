@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    // Função que le o proximo inteiro digitado pelo usuário e consome o ENTER
+    // Função que le o proximo inteiro digitado pelo usuário e consome o ENTER (\n)
     public static int nextInt(Scanner scanner) {
         int numero = scanner.nextInt();
         scanner.nextLine();
