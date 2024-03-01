@@ -1,22 +1,6 @@
-import java.sql.SQLOutput;
 import java.util.Random;
 import java.util.Scanner;
 
-/* DESCRIÇÃO
-Crie a Classe Jogo, essa classe vai ter o jogo em si, o jogo consiste em um pedra papel e tesoura,
-que o jogador deve inserir a sua jogada e o sistema irá retorna se ele ganhou ou não.
-O Jogo deve estar em um método jogar().
-O Jogo deve ter o atributo, melhor jogador(melhorJogador) e deve ter o número de vezes que o jogo foi jogado (numeroJogadas).
-Cada vez que um jogador ganha ele deve receber mais um ponto, cada tentativa adiciona ao numero de tentativas.
-
-=======================================================================================================================
-
-Crie uma sobrecarga do jogar() que será um novo jogo, esse deve receber um número, jogar(int num).
-O jogo consiste em o jogador escolher um número de 0 até ‘num’(numero colocado no parâmetro).
-Se acertar ganha um ponto, se errar ele perde um ponto.
-Tanto o número 'num', quanto o valor que o jogador escolher no jogo devem ser coletado por input no console.
-
-*/
 public class Jogo {
 
     private Jogador melhorJogador;

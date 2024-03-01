@@ -68,10 +68,4 @@ public class Jogador {
     public void adicionarTentativas(int numeroTentativas) {
         setNumeroTentativas(getNumeroTentativas() + numeroTentativas);
     }
-
-    public void mostrarInformacoesJogador() {
-        System.out.println("\nPontuação do jogador " + getNome() + ": " + getPontuacao());
-        System.out.println("Tentativas do jogador " + getNome() + ": " + getNumeroTentativas());
-    }
-
 }
